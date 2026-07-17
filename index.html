@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHG - Das Licht am anderen Ende</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Nunito (weich, freundlich) und Inter (klar, lesbar) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Konfiguration für eigene Farben und Schriften -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa', // sehr helles mint
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            500: '#14b8a6',
+                            600: '#0d9488', // Hauptfarbe Buttons etc.
+                            700: '#0f766e',
+                            800: '#115e59', // Dunkles Grün für Überschriften
+                            900: '#134e4a',
+                        },
+                        warm: {
+                            50: '#fafaf9', // Helles Stein-Grau/Beige für Hintergrund
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fafaf9; /* warm-50 */
+            color: #44403c; /* stone-700 */
+        }
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Nunito', sans-serif;
+            color: #115e59; /* brand-800 */
+        }
+        .photo-frame {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .photo-frame:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-warm-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <!-- Logo / Name -->
+                    <a href="#" class="flex items-center gap-3 group">
+                        <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-500 group-hover:scale-110 transition-transform shrink-0">
+                            <i class="fa-solid fa-sun text-xl"></i>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <span class="font-heading font-bold text-lg md:text-xl tracking-tight text-stone-800 leading-tight">Das Licht am anderen Ende</span>
+                            <span class="font-heading font-bold text-sm md:text-base text-brand-600 leading-tight">Lichtblick SHG</span>
+                        </div>
+                    </a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#ueber-uns" class="text-stone-600 hover:text-brand-600 font-medium transition-colors">Über uns</a>
+                    <a href="#termine-ort" class="text-stone-600 hover:text-brand-600 font-medium transition-colors">Termine & Ort</a>
+                    <a href="#gruppenleitung" class="text-stone-600 hover:text-brand-600 font-medium transition-colors">Gruppenleitung</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-stone-600 hover:text-brand-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-warm-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#ueber-uns" class="block px-3 py-2 text-stone-600 font-medium">Über uns</a>
+                <a href="#termine-ort" class="block px-3 py-2 text-stone-600 font-medium">Termine & Ort</a>
+                <a href="#gruppenleitung" class="block px-3 py-2 text-stone-600 font-medium">Gruppenleitung</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow">
+        <section class="relative pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="mb-3">
+                            <span class="block font-heading text-lg sm:text-xl text-stone-500 font-bold mb-1">Das Licht am anderen Ende</span>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-brand-800 tracking-tight">Lichtblick SHG</h2>
+                        </div>
+                        <span class="inline-block py-1 px-3 rounded-full bg-brand-100 text-brand-700 text-sm font-semibold mb-4">
+                            Selbsthilfegruppe bei Depressionen
+                        </span>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                            Zusammen finden wir <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-yellow-500">aus jeder Höhle hinaus.</span>
+                        </h1>
+                        <p class="text-lg sm:text-xl text-stone-600 mb-8 max-w-2xl leading-relaxed">
+                            Wir sind eine Gemeinschaft, die sich gegenseitig stützt. Bei uns gibt es Raum für ernste Gespräche, aber auch viel Platz für gemeinsames Lachen und unbeschwerte Momente.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#termine-ort" class="bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 px-6 rounded-full transition-colors shadow-md hover:shadow-lg flex items-center gap-2">
+                                <i class="fa-regular fa-calendar-check"></i> Wann wir uns treffen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <!-- Platzhalter für ein schönes, hoffnungsvolles Bild -->
+                        <div class="aspect-[4/3] rounded-3xl overflow-hidden photo-frame relative">
+                            <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hoffnungsvoller Waldweg im Sonnenlicht" class="object-cover w-full h-full">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        </div>
+                        <!-- Dekoratives Element -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4">
+                            <div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center text-yellow-600 text-xl">
+                                <i class="fa-solid fa-mug-hot"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-stone-800">Immer mit dabei:</p>
+                                <p class="text-xs text-stone-500">Kaffee & selbstgebackener Kuchen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Hintergrund Dekoration -->
+            <div class="absolute top-1/2 -translate-y-1/2 right-0 -z-10 w-1/2 h-full bg-brand-50 rounded-l-[100px] opacity-70"></div>
+        </section>
+
+        <section id="ueber-uns" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Wer wir sind und was uns ausmacht</h2>
+                    <p class="text-stone-600 text-lg">In unserer Gruppe darf jeder so sein, wie er ist. Kein Druck, keine Erwartungen, nur gegenseitiges Verständnis.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-warm-50 rounded-3xl p-8 border border-warm-100 text-center hover:bg-brand-50 transition-colors duration-300">
+                        <div class="w-16 h-16 mx-auto bg-brand-100 rounded-full flex items-center justify-center mb-6 text-brand-600 text-2xl">
+                            <i class="fa-regular fa-comments"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Erfahrungsaustausch</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Wir sprechen offen über unsere Depressionen, Ängste und Posttraumatische Belastungsstörungen (PTBS). Du bist mit deinen Gefühlen nicht allein.
+                        </p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-warm-50 rounded-3xl p-8 border border-warm-100 text-center hover:bg-yellow-50 transition-colors duration-300">
+                        <div class="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-600 text-2xl">
+                            <i class="fa-regular fa-face-laugh-beam"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Gemeinsames Lachen</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Natürlich kommen dabei die lustigen Themen nicht zu kurz! Wir versüßen uns die gemeinsame Zeit mit Kaffee, meist selbstgebackenem Kuchen und guten Gesprächen.
+                        </p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-warm-50 rounded-3xl p-8 border border-warm-100 text-center hover:bg-brand-50 transition-colors duration-300">
+                        <div class="w-16 h-16 mx-auto bg-brand-100 rounded-full flex items-center justify-center mb-6 text-brand-600 text-2xl">
+                            <i class="fa-solid fa-paw"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Tierische Unterstützung</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Tiere sind oft die besten Therapeuten. Wir freuen uns über unsere tierische Unterstützung durch die lieben Dackel der Gruppenleitung, die für zusätzliche Entspannung und Freude sorgen.
+                        </p>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="bg-warm-50 rounded-3xl p-8 border border-warm-100 text-center hover:bg-yellow-50 transition-colors duration-300">
+                        <div class="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-600 text-2xl">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Kurztrips & Workshops</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            Zumeist einmal im Jahr bieten wir einen gemeinsamen, freiwilligen Kurztrip an. Hier können wir uns voll und ganz auf uns fokussieren und an spannenden Workshops mit Experten teilnehmen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Platzhalter für ein Gruppenfoto oder Foto von den Tieren -->
+                <div class="mt-16 rounded-3xl overflow-hidden h-64 sm:h-96 w-full photo-frame relative">
+                    <!-- Platzhalter-Bild, kann durch ein echtes Foto von Hund/Kuchen/Gruppe ersetzt werden -->
+                    <img src="https://images.unsplash.com/photo-1544991185-1311a37c956c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gemütliche Runde mit Tieren" class="w-full h-full object-cover">
+                    <div class="absolute bottom-4 left-4 right-4 text-center">
+                         <span class="bg-white/90 backdrop-blur text-stone-800 text-sm px-4 py-2 rounded-full font-medium shadow">
+                             Hier ist Platz für eure Gruppenfotos oder Bilder eurer vierbeinigen Helfer!
+                         </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="termine-ort" class="py-20 bg-brand-800 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white mb-6">Wann und Wo?</h2>
+                        <p class="text-brand-100 mb-10 text-lg">
+                            Neue Gesichter sind bei uns immer herzlich willkommen. Wenn du dich angesprochen fühlst, komm einfach vorbei oder nimm vorher Kontakt zu uns auf.
+                        </p>
+                        
+                        <div class="space-y-8">
+                            <!-- Termin -->
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 bg-brand-700 w-12 h-12 rounded-full flex items-center justify-center text-yellow-400 shrink-0">
+                                    <i class="fa-regular fa-clock text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-1">Jeden Mittwoch</h3>
+                                    <p class="text-brand-100 text-lg">14:00 – 16:00 Uhr</p>
+                                    <p class="text-brand-200 mt-1 text-sm">Die Teilnahme ist kostenlos und vertraulich.</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Ort -->
+                            <div class="flex items-start gap-4">
+                                <div class="mt-1 bg-brand-700 w-12 h-12 rounded-full flex items-center justify-center text-yellow-400 shrink-0">
+                                    <i class="fa-solid fa-location-dot text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-1">Räumlichkeiten</h3>
+                                    <p class="text-brand-100 text-lg mb-2">Gruppenraum bei Kiss Weißenburg</p>
+                                    <p class="text-brand-200 text-sm">
+                                        Wir treffen uns in einem gemütlichen, geschützten Rahmen, in dem man sich wohlfühlen kann.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Platzhalter für Bild vom Raum -->
+                    <div class="relative">
+                        <div class="aspect-square sm:aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-brand-700">
+                             <!-- Platzhalter-Bild des Raumes -->
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gruppenraum" class="object-cover w-full h-full opacity-90 hover:opacity-100 transition-opacity">
+                            <div class="absolute inset-0 flex items-center justify-center flex-col p-4 bg-brand-900/40 opacity-0 hover:opacity-100 transition-opacity">
+                                <span class="bg-brand-600 text-white px-4 py-2 rounded-full font-medium">Platz für ein Foto eures Raumes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gruppenleitung" class="py-20 bg-warm-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Eure Ansprechpartner</h2>
+                    <p class="text-stone-600">Wir organisieren die Treffen und haben immer ein offenes Ohr für eure Anliegen. Kontaktiert uns gerne vorab, wenn ihr Fragen habt.</p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-10">
+                    <!-- Leiter 1 Placeholder -->
+                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-warm-100 max-w-xs text-center w-full sm:w-72 photo-frame">
+                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden bg-brand-100 border-4 border-white shadow-md mb-4 relative">
+                            <!-- Placeholder Image -->
+                            <img src="https://placehold.co/400x400/e7e5e4/a8a29e?text=Foto" alt="Gruppenleitung" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold mb-1">[Name eintragen]</h3>
+                        <p class="text-brand-600 font-medium text-sm mb-3">Gruppenleitung</p>
+                        <p class="text-stone-500 text-sm italic">"Ein kurzer persönlicher Satz oder ein Zitat zur Motivation."</p>
+                    </div>
+
+                    <!-- Leiter 2 Placeholder (Falls es 2 gibt) -->
+                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-warm-100 max-w-xs text-center w-full sm:w-72 photo-frame">
+                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden bg-brand-100 border-4 border-white shadow-md mb-4 relative">
+                            <!-- Placeholder Image -->
+                            <img src="https://placehold.co/400x400/e7e5e4/a8a29e?text=Foto" alt="Gruppenleitung" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-xl font-bold mb-1">[Name eintragen]</h3>
+                        <p class="text-brand-600 font-medium text-sm mb-3">Stellvertretung / Co-Leitung</p>
+                        <p class="text-stone-500 text-sm italic">"Oder auch ein Foto von eurem Therapiebegleithund!"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12 bg-white border-t border-warm-200">
+            <div class="max-w-5xl mx-auto px-4 text-center">
+                <div class="inline-flex items-center justify-center p-4 bg-brand-50 rounded-2xl mb-4">
+                    <i class="fa-solid fa-hand-holding-heart text-brand-600 text-3xl"></i>
+                </div>
+                <h3 class="text-lg font-bold text-stone-800 mb-2">Gefördert durch</h3>
+                <p class="text-stone-600 max-w-2xl mx-auto">
+                    Die Selbsthilfegruppe wird gefördert durch die <strong>gesetzlichen Krankenkassen und deren Verbände in Bayern</strong>. Wir bedanken uns herzlich für diese wichtige Unterstützung!
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-900 text-stone-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+            <div>
+                <a href="#" class="flex items-center gap-3 mb-4">
+                    <i class="fa-solid fa-sun text-yellow-500 text-2xl"></i>
+                    <div class="flex flex-col justify-center">
+                        <span class="font-heading font-bold text-white text-lg leading-tight">Das Licht am anderen Ende</span>
+                        <span class="font-heading font-bold text-brand-400 text-sm leading-tight">Lichtblick SHG</span>
+                    </div>
+                </a>
+                <p class="text-sm">Eine offene Selbsthilfegruppe für Menschen mit Depressionen, Ängsten und PTBS.</p>
+            </div>
+            
+            <div>
+                <h4 class="text-white font-bold mb-4">Kontakt & Treffpunkt</h4>
+                <address class="not-italic text-sm space-y-2">
+                    <p><i class="fa-solid fa-location-dot w-5 text-center"></i> Kiss Weißenburg</p>
+                    <p><i class="fa-regular fa-clock w-5 text-center"></i> Mittwochs, 14:00 - 16:00 Uhr</p>
+                    <p><i class="fa-solid fa-envelope w-5 text-center"></i> <a href="mailto:kontakt@beispiel.de" class="hover:text-white transition">kontakt@beispiel.de</a> <!-- Platzhalter für Email --></p>
+                </address>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-4">Rechtliches</h4>
+                <ul class="text-sm space-y-2">
+                    <li><a href="#" class="hover:text-white transition">Impressum</a></li>
+                    <li><a href="#" class="hover:text-white transition">Datenschutz</a></li>
+                    <li><a href="#" class="hover:text-white transition">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-stone-800 text-sm text-center">
+            &copy; <span id="year"></span> SHG Das Licht am anderen Ende. Alle Rechte vorbehalten.
+        </div>
+    </footer>
+
+    <script>
+        // Aktuelles Jahr für den Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Schließen des Mobile Menüs bei Klick auf einen Link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
