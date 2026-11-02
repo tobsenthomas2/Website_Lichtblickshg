@@ -5,47 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHG - Das Licht am anderen Ende</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Nunito (weich, freundlich) und Inter (klar, lesbar) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lokal eingebundene Schriften (Inter & Nunito), Icons (FontAwesome) und Tailwind CSS -->
+    <link rel="stylesheet" href="vendor/fonts/fonts.css">
+    <link rel="stylesheet" href="vendor/fontawesome-6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="tailwind.css">
 
-    <!-- Tailwind Konfiguration für eigene Farben und Schriften -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        heading: ['Nunito', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0fdfa', // sehr helles mint
-                            100: '#ccfbf1',
-                            200: '#99f6e4',
-                            500: '#14b8a6',
-                            600: '#0d9488', // Hauptfarbe Buttons etc.
-                            700: '#0f766e',
-                            800: '#115e59', // Dunkles Grün für Überschriften
-                            900: '#134e4a',
-                        },
-                        warm: {
-                            50: '#fafaf9', // Helles Stein-Grau/Beige für Hintergrund
-                            100: '#f5f5f4',
-                            200: '#e7e5e4',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         body {
             background-color: #fafaf9; /* warm-50 */
@@ -64,7 +28,7 @@
         }
     </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen">
+<body class="antialiased flex flex-col min-h-screen font-sans">
 
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-warm-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,12 +48,12 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#ueber-uns" class="text-stone-600 hover:text-brand-600 font-medium transition-colors">Über uns</a>
-                    <a href="#termine-ort" class="text-stone-600 hover:text-brand-600 font-medium transition-colors">Termine & Ort</a>
+                    <a href="#termine-ort" class="text-stone-600 hover:text-brand-600 font-medium transition-colors">Termine &amp; Ort</a>
                     <a href="#gruppenleitung" class="text-stone-600 hover:text-brand-600 font-medium transition-colors">Gruppenleitung</a>
                 </div>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-stone-600 hover:text-brand-600 focus:outline-none p-2">
+                    <button id="mobile-menu-btn" class="text-stone-600 hover:text-brand-600 focus:outline-none p-2" aria-label="Menü öffnen">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -99,7 +63,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-warm-200">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#ueber-uns" class="block px-3 py-2 text-stone-600 font-medium">Über uns</a>
-                <a href="#termine-ort" class="block px-3 py-2 text-stone-600 font-medium">Termine & Ort</a>
+                <a href="#termine-ort" class="block px-3 py-2 text-stone-600 font-medium">Termine &amp; Ort</a>
                 <a href="#gruppenleitung" class="block px-3 py-2 text-stone-600 font-medium">Gruppenleitung</a>
             </div>
         </div>
@@ -133,7 +97,7 @@
                     <div class="relative">
                         <!-- Hauptbild -->
                         <div class="aspect-[4/3] rounded-3xl overflow-hidden photo-frame relative">
-                            <img src="Hund1.jpg" alt="Einer unserer tierischen Helfer" class="object-cover w-full h-full">
+                            <img src="Hund1.jpg" alt="Einer unserer tierischen Helfer" class="object-cover object-[center_60%] w-full h-full">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
                         </div>
                         <!-- Dekoratives Element -->
@@ -143,7 +107,7 @@
                             </div>
                             <div>
                                 <p class="text-sm font-bold text-stone-800">Immer mit dabei:</p>
-                                <p class="text-xs text-stone-500">Kaffee & selbstgebackener Kuchen</p>
+                                <p class="text-xs text-stone-500">Kaffee &amp; selbstgebackener Kuchen</p>
                             </div>
                         </div>
                     </div>
@@ -196,22 +160,16 @@
                         <div class="w-16 h-16 mx-auto bg-yellow-100 rounded-full flex items-center justify-center mb-6 text-yellow-600 text-2xl">
                             <i class="fa-solid fa-compass"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Kurztrips & Workshops</h3>
+                        <h3 class="text-xl font-bold mb-3">Kurztrips &amp; Workshops</h3>
                         <p class="text-stone-600 text-sm leading-relaxed">
                             Zumeist einmal im Jahr bieten wir einen gemeinsamen, freiwilligen Kurztrip an. Hier können wir uns voll und ganz auf uns fokussieren und an spannenden Workshops mit Experten teilnehmen.
                         </p>
                     </div>
                 </div>
 
-                <!-- Platzhalter für ein Gruppenfoto oder Foto von den Tieren -->
-                <div class="mt-16 rounded-3xl overflow-hidden h-64 sm:h-96 w-full photo-frame relative">
-                    <!-- Platzhalter-Bild, kann durch ein echtes Foto von Hund/Kuchen/Gruppe ersetzt werden -->
-                    <img src="https://images.unsplash.com/photo-1544991185-1311a37c956c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gemütliche Runde mit Tieren" class="w-full h-full object-cover">
-                    <div class="absolute bottom-4 left-4 right-4 text-center">
-                         <span class="bg-white/90 backdrop-blur text-stone-800 text-sm px-4 py-2 rounded-full font-medium shadow">
-                <!-- Gruppenfoto -->
-                <div class="mt-16 rounded-3xl overflow-hidden h-64 sm:h-96 w-full photo-frame relative">
-                    <img src="Weihnachtsesen_Gruppe.jpg" alt="Weihnachtsessen der Gruppe" class="w-full h-full object-cover">
+                <!-- Symbolbild Gemeinschaft -->
+                <div class="mt-16 max-w-2xl mx-auto rounded-3xl overflow-hidden photo-frame bg-warm-50 border border-warm-200 relative">
+                    <img src="WA_1793645292181.jpeg" alt="Gemeinschaft und Zusammenhalt in der Selbsthilfegruppe" class="w-full h-auto object-contain block">
                 </div>
             </div>
         </section>
@@ -273,19 +231,23 @@
 
                 <div class="flex flex-wrap justify-center gap-10">
                     <!-- Leiter 1 -->
-                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-warm-100 max-w-xs text-center w-full sm:w-72 photo-frame">
-                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden bg-brand-100 border-4 border-white shadow-md mb-4 relative">
-                            <img src="Dackel_Gruppenleitung.jpg" alt="Gruppenleitung" class="w-full h-full object-cover">
+                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-warm-100 max-w-xs text-center w-full sm:w-80 photo-frame">
+                        <div class="w-36 h-36 mx-auto rounded-full overflow-hidden bg-brand-100 border-4 border-white shadow-md mb-4 relative">
+                            <img src="Dackel_Gruppenleitung.jpg" alt="Elke Delert-Thomas – Gruppenleitung" class="w-full h-full object-cover object-[center_22%]">
                         </div>
-                        <h3 class="text-xl font-bold mb-1">Gruppenleitung</h3>
+                        <h3 class="text-xl font-bold mb-1">Elke Delert-Thomas</h3>
                         <p class="text-brand-600 font-medium text-sm mb-3">Leitung der SHG</p>
-                        <p class="text-stone-500 text-sm italic">"Wir freuen uns darauf, dich kennenzulernen."</p>
+                        <p class="text-stone-500 text-sm italic mb-4">"Wir freuen uns darauf, dich kennenzulernen."</p>
+                        <div class="pt-3 border-t border-warm-100 text-sm text-stone-600 space-y-1.5">
+                            <p><i class="fa-solid fa-phone text-brand-600 mr-1.5"></i><a href="tel:+491703504422" class="hover:text-brand-700 font-medium">0170 3504422</a></p>
+                            <p><i class="fa-solid fa-envelope text-brand-600 mr-1.5"></i><a href="mailto:elked1962@gmail.com" class="hover:text-brand-700 font-medium">elked1962@gmail.com</a></p>
+                        </div>
                     </div>
 
                     <!-- Leiter 2 / Hunde -->
-                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-warm-100 max-w-xs text-center w-full sm:w-72 photo-frame">
-                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden bg-brand-100 border-4 border-white shadow-md mb-4 relative">
-                            <img src="Hund2.jpg" alt="Tierische Unterstützung" class="w-full h-full object-cover">
+                    <div class="bg-white rounded-3xl p-6 shadow-sm border border-warm-100 max-w-xs text-center w-full sm:w-80 photo-frame">
+                        <div class="w-36 h-36 mx-auto rounded-full overflow-hidden bg-brand-100 border-4 border-white shadow-md mb-4 relative">
+                            <img src="Hund2.jpg" alt="Tierische Unterstützung" class="w-full h-full object-cover object-[center_58%]">
                         </div>
                         <h3 class="text-xl font-bold mb-1">Unsere Dackel</h3>
                         <p class="text-brand-600 font-medium text-sm mb-3">Tierische Unterstützung</p>
@@ -323,20 +285,22 @@
             </div>
             
             <div>
-                <h4 class="text-white font-bold mb-4">Kontakt & Treffpunkt</h4>
+                <h4 class="text-white font-bold mb-4">Kontakt &amp; Treffpunkt</h4>
                 <address class="not-italic text-sm space-y-2">
+                    <p><i class="fa-solid fa-user w-5 text-center"></i> Elke Delert-Thomas</p>
                     <p><i class="fa-solid fa-location-dot w-5 text-center"></i> Kiss Weißenburg</p>
                     <p><i class="fa-regular fa-clock w-5 text-center"></i> Mittwochs, 14:00 - 16:00 Uhr</p>
-                    <p><i class="fa-solid fa-envelope w-5 text-center"></i> <a href="mailto:kontakt@beispiel.de" class="hover:text-white transition">kontakt@beispiel.de</a> <!-- Platzhalter für Email --></p>
+                    <p><i class="fa-solid fa-phone w-5 text-center"></i> <a href="tel:+491703504422" class="hover:text-white transition">0170 3504422</a></p>
+                    <p><i class="fa-solid fa-envelope w-5 text-center"></i> <a href="mailto:elked1962@gmail.com" class="hover:text-white transition">elked1962@gmail.com</a></p>
                 </address>
             </div>
 
             <div>
                 <h4 class="text-white font-bold mb-4">Rechtliches</h4>
                 <ul class="text-sm space-y-2">
-                    <li><a href="#" class="hover:text-white transition">Impressum</a></li>
-                    <li><a href="#" class="hover:text-white transition">Datenschutz</a></li>
-                    <li><a href="#" class="hover:text-white transition">Kontakt</a></li>
+                    <li><a href="impressum.html" class="hover:text-white transition">Impressum</a></li>
+                    <li><a href="datenschutz.html" class="hover:text-white transition">Datenschutzerklärung</a></li>
+                    <li><a href="#gruppenleitung" class="hover:text-white transition">Kontakt</a></li>
                 </ul>
             </div>
         </div>
